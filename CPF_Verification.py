@@ -1,4 +1,5 @@
 import random
+import random
 
 geral_question = input("Pressione [G] para Gerar um CPF aleatório \n"
                        "Pressione [V] para Validar um CPF\n"
@@ -62,6 +63,10 @@ if geral_question == "G":
         resultado_digito_1 += int(digit) * count
         count -= 1
 
+    #Calculo1
+    digit = (resultado_digito_1 * 10) % 11
+    digit = digit if digit <= 9 else 0
+
     CPF_first_digit_two = CPF_first_digit + str(digit)
     count_two = 11
 
@@ -72,10 +77,6 @@ if geral_question == "G":
     #Calculo2
     digit_2 = (resultado_digito_2 * 10) % 11
     digit_2 = digit_2 if digit_2 <= 9 else 0
-
-    #Calculo1
-    digit = (resultado_digito_1 * 10) % 11
-    digit = digit if digit <= 9 else 0
 
     calculo_cpf = f"{CPF_first_digit}{digit}{digit_2}"
 
